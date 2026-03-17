@@ -60,6 +60,50 @@ chuoi = input("Nhập chuỗi (độ dài >= 20): ")
 print("Chữ cái thứ năm là:", chuoi[4])
 print("Chữ cái thứ chín là:", chuoi[8])
 
+#bài 8
+def tinh_tien_dien():
+    ten_chu_ho = input("Ten chu ho: ")
+    chi_so_cu = int(input("Chi so thang truoc: "))
+    chi_so_moi = int(input("Chi so thang nay: "))
+    
+    # 2. Tính tổng số điện tiêu thụ
+    so_dien = chi_so_moi - chi_so_cu
+    tien_chua_thue = 0
+    # 3. Tính tiền theo từng bậc (Dùng cách bóc tách từ cao xuống thấp)
+    if so_dien > 400:
+        tien_chua_thue += (so_dien - 400) * 3460
+        so_dien = 400
+    if so_dien > 300:
+        tien_chua_thue += (so_dien - 300) * 3350
+        so_dien = 300
+    if so_dien > 200:
+        tien_chua_thue += (so_dien - 200) * 2998
+        so_dien = 200
+    if so_dien > 100:
+        tien_chua_thue += (so_dien - 100) * 2380
+        so_dien = 100
+    if so_dien > 50:
+        tien_chua_thue += (so_dien - 50) * 2050
+        so_dien = 50
+    if so_dien > 0:
+        tien_chua_thue += so_dien * 1984
+
+    # 4. Tính thuế VAT 8% dựa trên TỔNG TIỀN các bậc
+    tong_tien_cuoi = tien_chua_thue * 1.08
+    
+    # Làm tròn đến đơn vị đồng theo yêu cầu đề bài
+    ket_qua = round(tong_tien_cuoi)
+
+    # 5. Xuất kết quả đúng định dạng mẫu
+    print("-" * 20)
+    print(f"Ho va ten: {ten_chu_ho}")
+    print(f"Tien phai tra la: {ket_qua}")
+tinh_tien_dien()
+        
+
+    
+    
+
 
    
 
